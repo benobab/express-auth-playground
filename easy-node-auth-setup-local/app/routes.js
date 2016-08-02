@@ -65,9 +65,22 @@ module.exports = function(app,passport){
     // route for twitter authentication and login
     app.get('/auth/twitter', passport.authenticate('twitter'));
 
-    // handle the callback after facebook has authenticated the user
+    // handle the callback after twitter has authenticated the user
     app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+        
+    // =========================================================================
+    // GOOGLE ROUTES ===========================================================
+    // =========================================================================
+    // route for google authentication and login
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // handle the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+        passport.authenticate('google', {
             successRedirect : '/profile',
             failureRedirect : '/'
         }));

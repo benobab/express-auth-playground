@@ -43,4 +43,12 @@ html
                                                     #[strong id: #{user.twitter.id}] #[br]
                                                     #[strong username: @#{user.twitter.username}] #[br]
                                                     #[strong name: #{user.twitter.displayName}] 
+                                    if user.google.id
+                                        div.col-sm-6
+                                            div.well
+                                                h3.text-danger #[span.fa.fa-google  Google]
+                                                p.
+                                                    #[strong id: #{user.google.id}] #[br]
+                                                    #[strong name: #{user.google.name}] #[br]
+                                                    #[strong email: #{user.google.email}] 
                                 

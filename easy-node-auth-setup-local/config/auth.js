@@ -14,9 +14,9 @@ module.exports = {
     },
 
     'googleAuth' : {
-        'clientID'      : 'your-secret-clientID-here',
-        'clientSecret'  : 'your-client-secret-here',
-        'callbackURL'   : 'http://localhost:8080/auth/google/callback'
+        'clientID'      : '524118398415-5o5h1h269ktd5f4ihqaoqum1o5apulto.apps.googleusercontent.com',
+        'clientSecret'  : 'Da8yD2QdX0h7q7COyQi64M1q',
+        'callbackURL'   : 'https://express-auth-playground-benobab.c9users.io/auth/google/callback'
     }
 
 };
