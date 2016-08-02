@@ -1,0 +1,11 @@
+{
+  "name": "easy-node-auth-setup-local",
+  "version": "0.0.1",
+  "description": "Node project to play a little with passport and setup a blank project dedicated to auth.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "benobab",
+  "license": "MIT"
+}
