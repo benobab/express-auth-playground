@@ -3,7 +3,7 @@ html
                 title Node Authentication Playground
                 link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
                 link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', rel='stylesheet')
-                link(href='./css/bootstrap-social.css', rel='stylesheet')
+                link(href='/css/boostrap-social.css', rel='stylesheet')
                 style.
                         body {
                                 padding-top:80px;
@@ -19,36 +19,47 @@ html
                                         
                                         a(href="/logout").btn.btn-danger Logout
                                 div.row
-                                    if user.local.email
-                                            div.col-sm-6
-                                                    div.well
-                                                            h3 #[span.fa.fa-user  Local]
-                                                            p.
-                                                                    #[strong id: #{user._id}] #[br]
-                                                                    #[strong email: #{user.local.email}] #[br]
-                                                                    #[strong password: #{user.local.password}]
-                                    if user.facebook.id
-                                        div.col-sm-6
-                                            div.well
-                                                h3.text-primary #[span.fa.fa-facebook  Facebook]
+                                    div.col-sm-6
+                                        div.well
+                                                h3 #[span.fa.fa-user  Local]
+                                                if user.local.email
+                                                    p.
+                                                            #[strong id: #{user._id}] #[br]
+                                                            #[strong email: #{user.local.email}] #[br]
+                                                            #[strong password: #{user.local.password}]
+                                                    a(href='/unlink/local').btn.btn-danger Unlink
+                                                else 
+                                                    a(href='/connect/local').btn.btn-success Link
+                                    div.col-sm-6
+                                        div.well
+                                            h3.text-primary #[span.fa.fa-facebook  Facebook]
+                                            if user.facebook.token
                                                 p.
                                                     #[strong id: #{user.facebook.id}] #[br]
                                                     #[strong email: #{user.facebook.email}] #[br]
                                                     #[strong name: #{user.facebook.name}] 
-                                    if user.twitter.id
-                                        div.col-sm-6
-                                            div.well
-                                                h3.text-primary #[span.fa.fa-twitter  Twitter]
+                                                a(href='/unlink/facebook').btn.btn-danger Unlink
+                                            else
+                                                a(href='/connect/facebook').btn.btn-success Link
+                                    div.col-sm-6
+                                        div.well
+                                            h3.text-primary #[span.fa.fa-twitter  Twitter]
+                                            if user.twitter.token
                                                 p.
                                                     #[strong id: #{user.twitter.id}] #[br]
                                                     #[strong username: @#{user.twitter.username}] #[br]
-                                                    #[strong name: #{user.twitter.displayName}] 
-                                    if user.google.id
-                                        div.col-sm-6
-                                            div.well
-                                                h3.text-danger #[span.fa.fa-google  Google]
+                                                    #[strong name: #{user.twitter.displayName}]
+                                                a(href='/unlink/twitter').btn.btn-danger Unlink
+                                            else
+                                                a(href='/connect/twitter').btn.btn-success Link
+                                    div.col-sm-6
+                                        div.well
+                                            h3.text-danger #[span.fa.fa-google  Google]
+                                            if user.google.token
                                                 p.
                                                     #[strong id: #{user.google.id}] #[br]
                                                     #[strong name: #{user.google.name}] #[br]
                                                     #[strong email: #{user.google.email}] 
-                                
+                                                a(href='/unlink/google').btn.btn-danger Unlink
+                                            else
+                                                a(href='/connect/google').btn.btn-success Link

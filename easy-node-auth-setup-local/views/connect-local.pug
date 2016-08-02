@@ -1,0 +1,25 @@
+html
+        head
+                title Node Authentication Playground
+                link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+                link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', rel='stylesheet')
+                style.
+                        body {
+                                padding-top:80px;
+                            }
+        body
+                .container
+                        .col-sm-6.col-sm-offset-3
+                                h1.fa.fa-sign-in Signup
+                                if message.length > 0
+                                    div.alert.alert-danger #{message}
+                                form(action="/connect/local" method="post")
+                                    div.form-group
+                                        label Email
+                                        input(type="text" name="email").form-control
+                                    div.form-group
+                                        label Password
+                                        input(type="password" name="password").form-control
+                                    button(type="submit").btn.btn-warning.btn-lg Add Local
+                                hr
+                                a(href="/profile") Go back to profile
