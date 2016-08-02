@@ -8,9 +8,9 @@ module.exports = {
     },
 
     'twitterAuth' : {
-        'consumerKey'       : 'your-consumer-key-here',
-        'consumerSecret'    : 'your-client-secret-here',
-        'callbackURL'       : 'http://localhost:8080/auth/twitter/callback'
+        'consumerKey'       : 'nP2PhEV6EddhwvasfsyNSSxJ1',
+        'consumerSecret'    : 'bcEv5d4uUw9kDrX3NeRsQunKJne1A5ksRqKqns34MSLzMP9Yn9',
+        'callbackURL'       : 'https://express-auth-playground-benobab.c9users.io/auth/twitter/callback'
     },
 
     'googleAuth' : {

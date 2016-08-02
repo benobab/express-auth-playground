@@ -2,6 +2,7 @@
 var express = require("express");
 var app = express();
 
+var path = require("path");
 var port = process.env.PORT || '8080';
 var mongoose = require("mongoose");
 var passport = require("passport");
@@ -18,6 +19,9 @@ var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
 
 require("./config/passport")(passport); // pass passport for configuration
+
+//To be able to access css for example 
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Set up express application
 
