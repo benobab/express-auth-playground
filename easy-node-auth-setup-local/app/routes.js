@@ -25,7 +25,11 @@ module.exports = function(app,passport){
         res.render('signup.pug',{message:req.flash('signupMessage')}); 
     });
     // process the signup form
-    // app.post('/signup', do all our passport stuff here);
+    app.post('/signup', passport.authenticate('local-signup',{
+        successRedirect:'/profile', // redirect to the secure profile section
+        failureRedirect:'/signup', // redirect back to signup page
+        failureFlash:true // Allow flash messages
+    }));
     
     //====================================================================================================
     //Profile Page =======================================================================================
@@ -36,7 +40,7 @@ module.exports = function(app,passport){
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
+        res.render('profile.pug', {
             user : req.user // get the user out of session and pass to template
         });
     });
