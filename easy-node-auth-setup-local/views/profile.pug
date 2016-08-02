@@ -15,13 +15,15 @@ html
                                         
                                         a(href="/logout").btn.btn-danger Logout
                                 div.row
-                                        div.col-sm-6
-                                            div.well
-                                                h3 #[span.fa.fa-user  Local]
-                                                p.
-                                                    #[strong id: #{user._id}] #[br]
-                                                    #[strong email: #{user.local.email}] #[br]
-                                                    #[strong password: #{user.local.password}]
+                                    if user.local.email
+                                            div.col-sm-6
+                                                    div.well
+                                                            h3 #[span.fa.fa-user  Local]
+                                                            p.
+                                                                    #[strong id: #{user._id}] #[br]
+                                                                    #[strong email: #{user.local.email}] #[br]
+                                                                    #[strong password: #{user.local.password}]
+                                    if user.facebook.id
                                         div.col-sm-6
                                             div.well
                                                 h3.text-primary #[span.fa.fa-facebook  Facebook]
